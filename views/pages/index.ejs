@@ -1,0 +1,33 @@
+<%- include('header') -%>
+<form action="/" method="POST" class="ui form">
+    <div class="field">
+        <label for="message">Message</label>
+        <textarea name="message" id="message"></textarea>
+    </div>
+    <button type="submit" class="ui blue labeled sumbit icon button">
+        <i class="icon edit"></i> Envoyer 
+    </button>
+</form>
+
+<div class="ui comments">
+<h3 class="ui dividing header">Commentaires</h3>
+<% for (message of messages) { %> 
+<div class="comment">
+    <a class="avatar" href="/message/ <%= message.id %> ">
+        <img src="https://i7.pngguru.com/preview/778/849/85/computer-icons-user-login-avatar-clip-art-small-icons.jpg">
+    </a>
+    <div class="content">
+        <div class="metadata">
+            <!--<h5>Testet</h5>-->
+            <div class="date">
+                <%= message.created_at.fromNow() %> 
+            </div>
+        </div>
+        <div class="test">
+            <%= message.content %> 
+        </div>
+    </div>
+</div>
+<% } %> 
+</div>
+ <%- include('footer') -%>
